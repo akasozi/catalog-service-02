@@ -15,11 +15,24 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	set('snakeyaml.version','2.0')
+	set('spring-web.version','6.0.0')
+	set('springCloudVersion', "2021.0.8")
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
 }
 
 bootRun {
@@ -30,8 +43,5 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-ext {
-	set('snakeyaml.version','2.0')
-	set('spring-web.version','6.0.0')
-}
+
 // ext['spring-framework.version'] = '6.0.8'
