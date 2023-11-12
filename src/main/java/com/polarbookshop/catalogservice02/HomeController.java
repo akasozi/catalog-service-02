@@ -1,13 +1,20 @@
 package com.polarbookshop.catalogservice02;
 
+import com.polarbookshop.catalogservice02.config.PolarProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
 
+    private final PolarProperties polarProperties;
+
+    public HomeController(PolarProperties polarProperties) {
+        this.polarProperties = polarProperties;
+    }
+
     @GetMapping("/")
     public String getGreeting() {
-        return "Welcome to the book catalog Service! It is quite the service!";
+        return polarProperties.getGreeting();
     }
 }
