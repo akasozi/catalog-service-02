@@ -13,6 +13,16 @@ polar:
 spring:
   application:
     name: catalog-service-02
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/polardb_catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  sql:
+    init:
+      mode: always
   cloud:
     config:
       uri: http://localhost:8888
