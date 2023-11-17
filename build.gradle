@@ -16,8 +16,6 @@ repositories {
 }
 
 ext {
-	set('snakeyaml.version','2.0')
-	set('spring-web.version','6.0.0')
 	set('springCloudVersion', "2021.0.8")
 	set('testcontainersVersion', "1.17.3")
 }
