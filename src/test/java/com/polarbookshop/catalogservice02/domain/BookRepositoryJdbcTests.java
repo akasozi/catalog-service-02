@@ -29,7 +29,7 @@ class BookRepositoryJdbcTests {
     @Test
     void findBookByIsbnWhenIsbnExisting() {
         var bookIsbn = "1234561237";
-        var book = Book.of(bookIsbn, "The Effective Engineer", "Edmond Lau", 12.90);
+        var book = Book.of(bookIsbn, "The Effective Engineer", "Edmond Lau", 12.90, "Manning Publishers");
         jdbcAggregateTemplate.insert(book);
         Optional<Book> actualBook = bookRepository.findByIsbn(bookIsbn);
         assertThat(actualBook).isPresent();
@@ -39,7 +39,7 @@ class BookRepositoryJdbcTests {
     @Test
     void deleteByIsbnWhenIsbnExisting() {
         var bookIsbn = "1234561237";
-        var book = Book.of(bookIsbn, "The Effective Engineer", "Edmond Lau", 12.90);
+        var book = Book.of(bookIsbn, "The Effective Engineer", "Edmond Lau", 12.90, "Manning Publishers");
         jdbcAggregateTemplate.insert(book);
         Optional<Book> actualBook = bookRepository.findByIsbn(bookIsbn);
         assertThat(actualBook).isPresent();

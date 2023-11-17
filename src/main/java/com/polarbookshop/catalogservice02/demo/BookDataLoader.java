@@ -22,10 +22,10 @@ public class BookDataLoader {
     public void loadBookDataTest() {
         bookRepository.deleteAll();
         var book1 = Book.of("1234567891", "Nothern Lights",
-                "Lyra Silverstar", 9.90);
+                "Lyra Silverstar", 9.90, "Longhorn publishers");
 
         var book2 = Book.of("1234567892", "Polar Journey",
-                "Iorek Larsson", 12.90);
+                "Iorek Larsson", 12.90, "Longhorn publishers");
         bookRepository.saveAll(List.of(book1, book2));
     }
 }
