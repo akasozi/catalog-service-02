@@ -26,10 +26,11 @@ class BookJsonTests {
                 .isEqualTo(book.title());
         assertThat(jsonContent).extractingJsonPathStringValue("@.author")
                 .isEqualTo(book.author());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.publisher")
+                .isEqualTo(book.publisher());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.price")
                 .isEqualTo(book.price());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.publisher")
-                .isEqualTo(book.publisher());
+
     }
 
     @Test
