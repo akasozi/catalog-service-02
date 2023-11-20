@@ -48,10 +48,6 @@ bootRun {
 	systemProperty 'spring.profiles.active', 'testdata'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
 bootBuildImage {
 	imageName = "${project.name}"
 	environment = ["BP_JVM_VERSION" : "17.*"]
@@ -62,6 +58,10 @@ bootBuildImage {
 			url = project.findProperty("registryUrl")
 		}
 	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
 }
 
 
